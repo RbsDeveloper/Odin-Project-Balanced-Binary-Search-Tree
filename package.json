@@ -1,0 +1,13 @@
+{
+  "name": "odin-project-balanced-binary-search-tree",
+  "version": "1.0.0",
+  "description": "A Balanced Binary Search Tree built for The Odin Project using JavaScript.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module"
+}
