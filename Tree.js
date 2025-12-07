@@ -20,4 +20,36 @@ export class Bst{
 
         return root;
     }
+
+    insert(value) {
+        let newNode = new Node(value);
+
+        if(this.root === null){
+            this.root = newNode;
+            return this
+        }else{
+            let currentNode = this.root;
+
+            while(true){
+                if(value > currentNode.data){
+                    if(!currentNode.right){
+                        currentNode.right = newNode
+                        return this
+                    }else{
+                        currentNode=currentNode.right;
+                    }
+                 }else if(value < currentNode.data){
+                    if(!currentNode.left){
+                        currentNode.left = newNode;
+                        return this
+                    }else{
+                        currentNode = currentNode.left
+                    }
+                }else{
+                    console.log('Duplicate val')
+                    return false
+                }
+            }
+        }
+    }
 }

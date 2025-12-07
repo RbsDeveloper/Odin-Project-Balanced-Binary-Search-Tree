@@ -6,4 +6,8 @@ const tree = new Bst(initialData);
 
 console.log(tree);
 
-console.log(prettyPrint(tree.root));
+prettyPrint(tree.root);
+
+tree.insert(6);
+
+prettyPrint(tree.root);
