@@ -10,11 +10,12 @@ prettyPrint(tree.root);
 
 //tree.insert(6);
 
-//prettyPrint(tree.root);
+prettyPrint(tree.root);
 
 //tree.delete(8);
 
 //prettyPrint(tree.root);
 
-console.log(tree.find(6));
+//console.log(tree.find(6));
 
+console.log(tree.levelOrderForEach())

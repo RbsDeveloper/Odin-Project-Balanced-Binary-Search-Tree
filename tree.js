@@ -121,4 +121,37 @@ export class Bst{
         return null
     }
 
+    //breadth-first iterative version
+    levelOrderForEach(callback){
+        if(!callback){
+            throw new Error('Callback is missing')
+        }
+
+        const visitedNode = [];
+        const queue = [];
+
+        queue.push(this.root);
+
+        let dequeuedVal
+
+        while(queue.length){
+            
+            dequeuedVal = queue.shift();
+
+            callback(dequeuedVal);
+
+            visitedNode.push(dequeuedVal.data);
+            if(dequeuedVal.left){
+                queue.push(dequeuedVal.left)
+            }
+
+            if(dequeuedVal.right){
+                queue.push(dequeuedVal.right)
+            }
+        }
+
+        return visitedNode;
+
+    }
+
 }
