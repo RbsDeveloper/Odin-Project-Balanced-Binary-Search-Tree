@@ -151,7 +151,37 @@ export class Bst{
         }
 
         return visitedNode;
+    }
 
+    //breadth-first recursive version
+    levelOrderForEachRecursive(callback){
+         if(!callback){
+             throw new Error('Callback is missing');
+         }
+
+        let visitedNode = [];
+        let queue = [];
+        let dequeuedVal
+
+        queue.push(this.root)
+
+        const helper = (q) => {
+            if(!q.length) return; 
+
+            dequeuedVal = q.shift();
+            visitedNode.push(dequeuedVal.data);
+            callback(dequeuedVal);
+
+            if(dequeuedVal.left) q.push(dequeuedVal.left);
+
+            if(dequeuedVal.right) q.push(dequeuedVal.right);
+
+            helper(q)
+        }
+
+        helper(queue)
+
+        return visitedNode;
     }
 
 }
