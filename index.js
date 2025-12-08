@@ -12,7 +12,9 @@ prettyPrint(tree.root);
 
 //prettyPrint(tree.root);
 
-tree.delete(8);
+//tree.delete(8);
 
-prettyPrint(tree.root);
+//prettyPrint(tree.root);
+
+console.log(tree.find(6));
 

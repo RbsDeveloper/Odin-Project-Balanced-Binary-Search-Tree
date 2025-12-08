@@ -102,4 +102,23 @@ export class Bst{
         this.root = deleteNode(this.root, value);
     }
 
+    find(val){
+        if(!this.root){
+            return null;
+        }
+
+        let currentNode = this.root;
+
+        while(currentNode){
+            if (val === currentNode.data){
+                return currentNode;
+            } else if (val < currentNode.data){
+                currentNode = currentNode.left;
+            } else if (val > currentNode.data){
+                currentNode = currentNode.right;
+            }
+        }
+        return null
+    }
+
 }
