@@ -8,6 +8,11 @@ console.log(tree);
 
 prettyPrint(tree.root);
 
-tree.insert(6);
+//tree.insert(6);
+
+//prettyPrint(tree.root);
+
+tree.delete(8);
 
 prettyPrint(tree.root);
+

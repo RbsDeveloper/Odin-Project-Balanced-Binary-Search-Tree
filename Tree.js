@@ -52,4 +52,54 @@ export class Bst{
             }
         }
     }
+
+    delete(value){
+        //1-no children
+        //2-one child
+        //3-both children
+
+        const deleteNode = function (node, value){
+            if(node == null){
+                return null;
+            }
+
+            if(value === node.data){
+
+                //Node has no children
+                if(!node.left && !node.right){
+                    return null
+                }
+
+                //NODE HAS ONE CHILD
+                    //Has left child
+                if(!node.right){
+                   return node.left; 
+                }
+                    //Has right child
+                if(!node.left){
+                    return node.right
+                }
+
+                //NODE HAS BOTH CHILDREN
+                let tempNode = node.right;
+                while(tempNode.left){
+                    tempNode = tempNode.left;
+                }
+
+                node.data = tempNode.data
+                node.right = deleteNode(node.right, tempNode.data);
+                return node
+            }else if(value < node.data){
+                node.left = deleteNode(node.left, value);
+                return node
+            }else{
+                node.right = deleteNode(node.right, value);
+                return node
+            }
+
+        }
+
+        this.root = deleteNode(this.root, value);
+    }
+
 }
