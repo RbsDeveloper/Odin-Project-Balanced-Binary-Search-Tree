@@ -18,4 +18,4 @@ prettyPrint(tree.root);
 
 //console.log(tree.find(6));
 
-
+console.log(tree.postOrderForEach(()=>{console.log('hi')}))

@@ -184,7 +184,7 @@ export class Bst{
         return visitedNode;
     }
 
-    //Pre order depth first recursive version
+    //Pre order depth first 
     preOrderForEach(callback){
         if(!callback){
             throw new Error("Callback is missing");
@@ -205,12 +205,39 @@ export class Bst{
             if(node.right){
                 helper(node.right);
             }
-
-           
         }
 
         helper(current);
         return visited;
     }
+
+    //Post order depth first
+    postOrderForEach(callback){
+        if(!callback){
+            throw new Error('Callback is missing');
+        }
+
+        let current = this.root,
+            visited = [];
+        
+        const helper = (node) => {
+
+            if(node.left){
+                helper(node.left);
+            }
+
+            if(node.right){
+                helper(node.right);
+            }
+
+            visited.push(node.data)
+            callback(node)
+        } 
+
+        helper(current);
+
+        return visited
+    }
+
 
 }
