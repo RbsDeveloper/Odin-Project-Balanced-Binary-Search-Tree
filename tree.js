@@ -239,5 +239,33 @@ export class Bst{
         return visited
     }
 
+    //In order depth first
+    inOrderForEach(callback){
+        if(!callback){
+            throw new Error("Callback is missing");
+        }
+
+        let current = this.root,
+            visited = [];
+
+        const helper = (node) => {
+            
+            if(node.left){
+                helper(node.left)
+            }
+
+            visited.push(node.data);
+            callback(node);
+
+            if(node.right){
+                helper(node.right)
+            }
+
+        }
+
+        helper(current)
+        return visited
+    }
+
 
 }
