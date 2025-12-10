@@ -33,15 +33,15 @@ export class Bst{
             while(true){
                 if(value > currentNode.data){
                     if(!currentNode.right){
-                        currentNode.right = newNode
-                        return this
+                        currentNode.right = newNode;
+                        break;
                     }else{
                         currentNode=currentNode.right;
                     }
                  }else if(value < currentNode.data){
                     if(!currentNode.left){
                         currentNode.left = newNode;
-                        return this
+                        break;
                     }else{
                         currentNode = currentNode.left
                     }
@@ -51,6 +51,12 @@ export class Bst{
                 }
             }
         }
+
+        if(!this.isBalanced()){
+            this.rebalance()
+        }
+
+        return this
     }
 
     delete(value){
@@ -100,6 +106,10 @@ export class Bst{
         }
 
         this.root = deleteNode(this.root, value);
+        
+        if(!this.isBalanced()){
+            this.rebalance()
+        }
     }
 
     find(val){
@@ -328,6 +338,11 @@ export class Bst{
 
         this.postOrderForEach(checkHeightDifference)
         return balanced;
+    }
+
+    rebalance(){
+        const currentTreeNodes = this.levelOrderForEach((node)=>console.log(`Inserting ${node.data} in the visited array`));
+        this.root = this.builtTree(currentTreeNodes);
     }
 
 
