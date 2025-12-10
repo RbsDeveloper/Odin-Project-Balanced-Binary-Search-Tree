@@ -21,3 +21,4 @@ prettyPrint(tree.root);
 //console.log(tree.inOrderForEach(()=>{console.log('hi')}))
 
 console.log(tree.height(67));
+console.log(tree.depth(2));

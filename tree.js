@@ -285,5 +285,27 @@ export class Bst{
         return heightResult;
     }
 
+    depth(value){
+        if(!this.root) return null;
+        let current = this.root;
+        let depth = 0;
+
+        const helper = (current)=> {
+            if (!current) return null;
+
+            if (current.data === value) return depth
+            
+            depth++
+
+            if (value > current.data){
+                helper(current.right);
+            } else if (value < current.data){
+                helper(current.left);
+            }
+        }
+
+        return helper(current)
+    }
+
 
 }
