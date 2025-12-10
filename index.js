@@ -6,7 +6,7 @@ const tree = new Bst(initialData);
 
 console.log(tree);
 
-prettyPrint(tree.root);
+//prettyPrint(tree.root);
 
 //tree.insert(6);
 
@@ -18,7 +18,14 @@ prettyPrint(tree.root);
 
 //console.log(tree.find(6));
 
-//console.log(tree.inOrderForEach(()=>{console.log('hi')}))
+//console.log(tree.postOrderForEach(()=>{console.log('hi')}))
 
-console.log(tree.height(67));
-console.log(tree.depth(2));
+// console.log(tree.height(67));
+// console.log(tree.depth(2));
+
+tree.insert(325);
+tree.insert(330);
+
+prettyPrint(tree.root)
+
+console.log(tree.isBalanced())

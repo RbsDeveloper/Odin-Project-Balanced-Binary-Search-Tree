@@ -307,5 +307,28 @@ export class Bst{
         return helper(current)
     }
 
+    isBalanced(){
+    
+        let balanced = true;
+        if(!this.root) return balanced;
+
+        const checkHeightDifference = (currentNode) =>{
+
+            const leftNode = currentNode.left;
+            const rightNode = currentNode.right;
+            const leftHeight = leftNode ? this.height(leftNode.data) : -1;
+            const rightHeight = rightNode ? this.height(rightNode.data) : -1;
+
+            const heightDiff = Math.abs(leftHeight - rightHeight);
+            if(heightDiff > 1){ 
+                balanced = false
+                return
+            }   
+        }
+
+        this.postOrderForEach(checkHeightDifference)
+        return balanced;
+    }
+
 
 }
