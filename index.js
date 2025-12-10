@@ -10,12 +10,14 @@ prettyPrint(tree.root);
 
 //tree.insert(6);
 
-// prettyPrint(tree.root);
+//prettyPrint(tree.root);
 
-//tree.delete(8);
+//tree.delete(324);
 
 //prettyPrint(tree.root);
 
 //console.log(tree.find(6));
 
-console.log(tree.inOrderForEach(()=>{console.log('hi')}))
+//console.log(tree.inOrderForEach(()=>{console.log('hi')}))
+
+console.log(tree.height(67));

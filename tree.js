@@ -267,5 +267,23 @@ export class Bst{
         return visited
     }
 
+    height(value){
+
+        let startNode = this.find(value);
+
+        const helper = (node) => {
+            if(!node) return -1;
+
+            const leftHeight = helper(node.left);
+            const rightHeight = helper(node.right);
+
+            return 1 + Math.max(leftHeight, rightHeight);
+        }
+
+        const heightResult = helper(startNode);
+        
+        return heightResult;
+    }
+
 
 }
