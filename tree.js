@@ -60,10 +60,7 @@ export class Bst{
     }
 
     delete(value){
-        //1-no children
-        //2-one child
-        //3-both children
-
+       
         const deleteNode = function (node, value){
             if(node == null){
                 return null;
@@ -163,7 +160,7 @@ export class Bst{
         return visitedNode;
     }
 
-    //breadth-first recursive version
+    //Breadth-first recursive version
     levelOrderForEachRecursive(callback){
          if(!callback){
              throw new Error('Callback is missing');
@@ -194,7 +191,7 @@ export class Bst{
         return visitedNode;
     }
 
-    //Pre order depth first 
+    //Pre-order depth first 
     preOrderForEach(callback){
         if(!callback){
             throw new Error("Callback is missing");
@@ -221,7 +218,7 @@ export class Bst{
         return visited;
     }
 
-    //Post order depth first
+    //Post-order depth first
     postOrderForEach(callback){
         if(!callback){
             throw new Error('Callback is missing');
@@ -249,7 +246,7 @@ export class Bst{
         return visited
     }
 
-    //In order depth first
+    //In-order depth first
     inOrderForEach(callback){
         if(!callback){
             throw new Error("Callback is missing");
@@ -344,6 +341,4 @@ export class Bst{
         const currentTreeNodes = this.levelOrderForEach((node)=>console.log(`Inserting ${node.data} in the visited array`));
         this.root = this.builtTree(currentTreeNodes);
     }
-
-
 }
